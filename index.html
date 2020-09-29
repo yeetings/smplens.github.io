@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>SMP Lens</title>
+    <meta name="description" content="Minecraft Server 1.16 SMP">
+    <meta name="keywords" content="Minecraft, SMP, Survival">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var splashes = ["Try Lens Studio", "Check out r/SMPLens", "SMP Lens", "reddit.com/r/MafiaCraftLive", "mc.mafiacraft.live", "Coded with love by Shawn", "Have fun <3"]; // Create an array of all splash texts
+            document.getElementById('subtitle').innerHTML = splashes[Math.floor(Math.random() * splashes.length)]; // Pick a random one from the array and replace "Loading..."
+        });
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="logo">
+                <img src="assets/img/Untitled-2.png">
+                <p id="subtitle">
+                    Loading...
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <!-- Empty left column -->
+        </div>
+        <div class="col-sm-4">
+            <div class="container">
+                <div class="btnbox">
+                    <a>
+                        <div class="mainbtn"><font color="yellow"><span id="players">0</span></font> players are playing on <font color="yellow">SMP Lens</font></div>
+                    </a>
+                </div>
+                <div class="clearfi"></div>
+                <!-- Diviver Line -->
+                <div class="btnbox">
+                    <a href="https://www.reddit.com/r/MafiaCraftLive/">
+                        <div class="mainbtn">Forums</div>
+                    </a>
+                </div>
+                <div class="clearfi"></div>
+                <!-- Diviver Line -->
+                <div class="btnbox">
+                    <a href="http://51.79.10.15:8007/">
+                        <div class="mainbtn">SMP Lens Map</div>
+                    </a>
+                </div>
+                <div class="clearfi"></div>
+                <!-- Diviver Line -->
+                <div class="btnbox">
+                    <a href="#">
+                        <div class="mainbtn">Store (Coming Soon)</div>
+                    </a>
+                </div>
+                <div class="clearfi"></div>
+                <!-- Diviver Line -->
+                <div class="btnbox">
+                    <a href="https://www.reddit.com/r/SMPLens/comments/j26fcd/smp_lens_rules/">
+                        <div class="mainbtn">Rules</div>
+                    </a>
+                </div>
+                <div class="clearfi"></div>
+                <!-- Diviver Line -->
+                <div class="btnbox">
+                    <a href="https://www.reddit.com/r/SMPLens/comments/j25y87/currently_whitelisted_players_on_smp_lens/">
+                        <div class="mainbtn">Players</div>
+                    </a>
+                </div>
+                    </div>
+                    </div>
+                </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                getPlayerCount();
+                setInterval(function() {
+                    getPlayerCount();
+                }, 60 * 1000); // Every 60 seconds refetch playercount
+            });
+
+            function getPlayerCount() {
+                $.getJSON("https://api.minetools.eu/ping/mc.mafiacraft.live", function(data) {
+                    $("#ping").html(data.latency.toFixed(0));
+                    $("#ip").html("play.mafiacraft.live");
+                    $("#players").html(data.players.online);
+                });
+            }
+        </script>
+			</body>
+		</html>
